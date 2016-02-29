@@ -18,10 +18,17 @@ import org.robolectric.annotation.Config;
 )
 public class ExampleUnitTest {
 
-    private final OtherActivity otherActivity = Robolectric.setupActivity(OtherActivity.class);
-
     @Test
     public void toolbarSadness() throws Exception {
+        // Shows it happens on inflation of AppCompat widgets
+        OtherActivity otherActivity = Robolectric.setupActivity(OtherActivity.class);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    public void mainActivity() throws Exception {
+        // Shows it also happens when manually calling VectorDrawableCompat.create()
+        MainActivity mainActivity = Robolectric.setupActivity(MainActivity.class);
         Assert.assertTrue(true);
     }
 }
